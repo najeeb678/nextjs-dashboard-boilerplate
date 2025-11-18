@@ -44,7 +44,7 @@ export default function Topbar({ onMenuClick, isSidebarOpen = false }: TopbarPro
             )}
           </button>
           <h1 className="logo-text" style={{ color: "#2a2a2a" }}>
-            AI Tarot Admin
+            Admin Panel
           </h1>
         </div>
         <div className="flex items-center space-x-2 sm:space-x-4">

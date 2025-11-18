@@ -1,39 +1,35 @@
-# Admin Panel
+# Admin Panel Template
 
-A modern Next.js dashboard for managing reading sessions, built with TypeScript, TailwindCSS, and ShadCN UI components.
+A modern Next.js dashboard template for building admin interfaces, built with TypeScript, TailwindCSS, and ShadCN UI components.
 
 ## Features
 
-- **Session Management**: View and manage reading sessions with detailed conversation threads
-- **User Management**: Admin interface for managing users and their sessions
-- **Analytics Dashboard**: Overview of session metrics and performance data
-- **Light Theme**: Pleasant color scheme with lavender and gold accents
+- **Data Management**: View and manage data entities with detailed information displays
+- **User Management**: Admin interface for managing users and permissions
+- **Analytics Dashboard**: Overview of key metrics and performance data
+- **Light Theme**: Customizable color scheme with modern design
 - **Responsive Design**: Mobile-friendly layout with collapsible sidebar
-- **Data Tables**: Advanced filtering, search, and CSV export functionality
+- **Data Tables**: Advanced filtering, search, and export functionality
 - **TypeScript**: Full type safety throughout the application
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.2.1 with App Router
-- **Language**: TypeScript 5
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
 - **Styling**: TailwindCSS v3
-- **UI Components**: Radix UI (Dialog, Select, Slot)
-- **Data Tables**: TanStack Table v8
-- **State Management**: Zustand v5
+- **UI Components**: Radix UI primitives
+- **Data Tables**: TanStack Table
 - **HTTP Client**: Axios
 - **Icons**: Lucide React
-- **Validation**: Zod
-- **Redis**: Upstash Redis, ioredis
-- **Utilities**: UUID, clsx, tailwind-merge, class-variance-authority
-- **Notifications**: React Toastify
-- **Fonts**: Geist
+- **Form Validation**: Zod (optional)
+- **Notifications**: React Toastify (optional)
 
 ## How to use
 
 1. Clone this repo:
 
    ```bash
-   git clone https://github.com/your-username/admin-panel-template.git
+   git clone https://github.com/your-username/nextjs-admin-template.git
    ```
 
 2. Install dependencies:
@@ -57,32 +53,46 @@ src/
 ├── app/                    # Next.js app router pages
 │   ├── (dashboard)/       # Protected dashboard routes
 │   │   ├── dashboard/     # Main dashboard page
-│   │   ├── sessions/      # Session management pages
+│   │   ├── [entity]/      # Dynamic entity management pages
 │   │   ├── users/         # User management page
-│   │   └── analytics/     # Analytics page
-│   ├── globals.css        # Global styles with light theme
-│   ├── layout.tsx         # Root layout
-│   └── middleware.ts      # Route protection middleware
+│   │   └── analytics/     # Analytics and reports page
+│   ├── globals.css        # Global styles and theme
+│   ├── layout.tsx         # Root layout component
+│   └── middleware.ts      # Route protection and middleware
 ├── components/            # Reusable UI components
-│   ├── ui/               # ShadCN UI components
-│   ├── common/           # Shared components (DataTable, etc.)
+│   ├── ui/               # Base UI components (buttons, inputs, etc.)
+│   ├── common/           # Shared components (tables, forms, etc.)
 │   └── dashboard/        # Dashboard-specific components
-├── lib/                  # Utility libraries
-├── store/               # Zustand state management
+├── lib/                  # Utility libraries and configurations
+├── store/               # State management (Zustand)
 ├── types/               # TypeScript type definitions
-└── utils/               # Helper functions
+└── utils/               # Helper functions and utilities
 ```
 
-## Color Theme
+## Customization
 
-The application uses a light color palette:
+### Color Theme
 
-- **Background**: Very Light Lavender (#faf9ff)
-- **Primary**: Light Lavender (#f0eaff)
-- **Secondary**: Light Blue (#e6e0ff)
-- **Accent**: Light Purple (#d4ccff)
-- **Highlight**: Gold (#ffd87d)
-- **Text**: Dark Gray (#2a2a2a) and Gray (#787878)
+The application includes a customizable light theme. You can modify the color palette in `src/app/globals.css`:
+
+```css
+:root {
+  --background: /* your background color */ ;
+  --primary: /* your primary color */ ;
+  --secondary: /* your secondary color */ ;
+  --accent: /* your accent color */ ;
+  --highlight: /* your highlight color */ ;
+  --text-primary: /* your primary text color */ ;
+  --text-secondary: /* your secondary text color */ ;
+}
+```
+
+### Adding New Pages
+
+1. Create a new folder in `src/app/(dashboard)/`
+2. Add your page component with `page.tsx`
+3. Update the sidebar navigation in `src/components/dashboard/Sidebar.tsx`
+4. Add any necessary API routes or data fetching logic
 
 ## Development
 
@@ -107,4 +117,4 @@ Create a `.env.local` file in the root directory with your API endpoints and con
 
 ## License
 
-MIT License - feel free to use this project for your own admin panel needs.
+MIT License - feel free to use this template for your own admin panel projects.

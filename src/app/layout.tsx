@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Tarot Admin Panel",
-  description: "Admin panel for managing AI Tarot sessions and analytics",
+  title: "Admin Panel",
+  description: "Modern admin panel for data management and analytics",
 };
 
 export default function RootLayout({

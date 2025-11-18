@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-[#2a2a2a]">AI Tarot Admin Dashboard</h1>
+      <h1 className="text-3xl font-bold text-[#2a2a2a]">Admin Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-[#f0eaff] border border-[#d4ccff] rounded-lg p-6">
