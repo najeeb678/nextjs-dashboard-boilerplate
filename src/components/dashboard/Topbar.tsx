@@ -9,19 +9,13 @@ interface TopbarProps {
 
 export default function Topbar({ onMenuClick, isSidebarOpen = false }: TopbarProps) {
   return (
-    <header
-      className="fixed top-0 w-full z-50 border-b border-[#d4ccff]"
-      style={{
-        background: "linear-gradient(to right, #faf9ff 0%, #f0eaff 60%, #e6e0ff 100%)",
-      }}
-    >
+    <header className="fixed top-0 left-0 w-full lg:left-64 lg:w-[calc(100%-16rem)] z-30 bg-white border-b border-gray-200">
       <div className="h-20 flex items-center justify-between px-4 lg:px-10">
         <div className="flex items-center gap-4">
           {/* Hamburger menu button */}
           <button
             onClick={onMenuClick}
-            className="p-2 rounded-md hover:bg-[#d4ccff33] transition-colors lg:hidden"
-            style={{ color: "#2a2a2a" }}
+            className="p-2 rounded-md hover:bg-gray-50 transition-colors text-gray-700 lg:hidden"
           >
             {isSidebarOpen ? (
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,27 +37,9 @@ export default function Topbar({ onMenuClick, isSidebarOpen = false }: TopbarPro
               </svg>
             )}
           </button>
-          <h1 className="logo-text" style={{ color: "#2a2a2a" }}>
-            Admin Panel
-          </h1>
         </div>
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button className="p-2 rounded-full hover:bg-[#d4ccff33] transition-colors">
-            <svg
-              className="h-5 w-5 sm:h-6 sm:w-6"
-              style={{ color: "#787878" }}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
+          {/* User avatar */}
           <div className="relative group">
             <button className="flex items-center space-x-2">
               <Image
@@ -73,7 +49,7 @@ export default function Topbar({ onMenuClick, isSidebarOpen = false }: TopbarPro
                 alt="User avatar"
                 className="h-8 w-8 rounded-full"
               />
-              <span className="hidden sm:block text-sm font-medium" style={{ color: "#2a2a2a" }}>
+              <span className="hidden sm:block text-sm font-medium" style={{ color: "#333333" }}>
                 Admin User
               </span>
             </button>

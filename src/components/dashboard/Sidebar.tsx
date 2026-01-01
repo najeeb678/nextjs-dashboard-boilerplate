@@ -48,31 +48,24 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 lg:top-20 left-0 z-40 w-64 border-r border-[#d4ccff]
-              flex flex-col transform transition-transform duration-300 ease-in-out 
-              h-screen lg:h-[calc(100vh-5rem)]
-              ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-              lg:translate-x-0`}
-        // style={{
-        //   background: "linear-gradient(to bottom,#F7F6FB  0%, #e6e2fa 30%, #e6e2fa 100%)",
-        // }}
+        className={`fixed top-0 left-0 z-40 w-64 border-r border-gray-200 h-screen transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+          lg:translate-x-0`}
         style={{
-          background: `linear-gradient(
-      to bottom,
-      #faf9ff 0%,    /* very light lavender top */
-      #f0eaff 30%,   /* light lavender */
-      #e6e0ff 70%,   /* light blue */
-      #d4ccff 100%   /* light purple bottom */
-    )`,
+          background: "#ffffff",
         }}
       >
-        {/* Header - Only show close button on mobile */}
-        <div className="flex items-center justify-end p-4 border-b border-[#d4ccff55] lg:hidden">
+        <div className="relative flex flex-col h-full">
+          {/* Logo */}
+          <div className="h-32 flex items-center justify-center px-4 py-4">
+            <h1 className="text-2xl font-bold text-gray-800">Admin Panel</h1>
+          </div>
+
           {/* Close button for mobile */}
           <button
             onClick={onClose}
-            className="p-2 rounded-md hover:bg-[#d4ccff55] transition-colors"
-            style={{ color: "#2a2a2a" }}
+            className="absolute top-4 right-4 p-2 rounded-md hover:bg-gray-100 transition-colors lg:hidden"
+            style={{ color: "#333333" }}
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -83,47 +76,46 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               />
             </svg>
           </button>
-        </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 px-4 py-6">
-          <div className="space-y-2">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={handleLinkClick}
-                  className={`sidebar-item group flex items-center px-4 py-3 rounded-lg transition-all h-[48px]
+          {/* Navigation */}
+          <nav className="flex-1 px-4 py-6">
+            <div className="space-y-2">
+              {navigation.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={handleLinkClick}
+                    className={`sidebar-item group flex items-center px-4 py-3 rounded-lg transition-all h-[48px]
                                     ${
                                       isActive
-                                        ? "bg-gradient-to-r from-[#ffd87d] to-[#f0eaff]"
-                                        : "bg-[#f0eaff80] hover:bg-gradient-to-r hover:from-[#ffd87d] hover:to-[#f0eaff]"
+                                        ? "bg-gray-100"
+                                        : "bg-transparent hover:bg-gray-100 hover:text-[#e74c3c]"
                                     }`}
-                  style={{
-                    color: isActive ? "#2a2a2a" : "#2a2a2a",
-                  }}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  <svg
-                    className="mr-3 h-5 w-5 transition-colors"
-                    style={{ color: isActive ? "#ffd87d" : "#787878" }}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    style={{
+                      color: "#333333",
+                    }}
+                    aria-current={isActive ? "page" : undefined}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                  </svg>
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
+                    <svg
+                      className="mr-3 h-5 w-5 transition-colors"
+                      style={{ color: isActive ? "#e74c3c" : "#333333" }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                    </svg>
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
 
-        {/* Bottom Section */}
-        {/* <div className="border-t border-[#E3C5FF55] p-4">
+          {/* Bottom Section */}
+          {/* <div className="border-t border-[#E3C5FF55] p-4">
           <Link
             href="/settings"
             onClick={handleLinkClick}
@@ -159,6 +151,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             Settings
           </Link>
         </div> */}
+        </div>
       </div>
     </>
   );
