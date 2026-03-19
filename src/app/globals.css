@@ -324,3 +324,32 @@ html {
 .form-input::placeholder {
   color: #787878;
 }
+  /* Rich Text Editor Link Styles */
+  .rich-text-content a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+    position: relative;
+  }
+  .rich-text-content a:hover {
+    color: #1d4ed8 !important;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 2px;
+  }
+  /* Optional: Show URL on hover using a pseudo-element if no script is used */
+  .rich-text-content a:hover::after {
+    content: " " attr(href) " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 10;
+    margin-bottom: 4px;
+    pointer-events: none;
+  }
